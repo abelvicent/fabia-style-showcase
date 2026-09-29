@@ -5,6 +5,6 @@
 - [x] Aplicar a paleta vinho, branco e cinza da identidade enviada
 - [x] Integrar o logotipo enviado e criar imagens editoriais e de produtos
 - [x] Validar navegação, filtros, WhatsApp, formulário e experiência responsiva
-- [ ] Personalizar apresentação institucional com dados confirmados e Fashion AI
-- [ ] Remover dados comerciais e produtos fictícios; manter campos preparados para dados reais
-- [ ] Verificar páginas e navegação após a personalização
+- [x] Personalizar apresentação institucional com dados confirmados e Fashion AI
+- [x] Remover dados comerciais e produtos fictícios; manter campos preparados para dados reais
+- [x] Verificar páginas e navegação após a personalização
