@@ -11,3 +11,4 @@
 
 - Store content lives in centralized typed data/config modules so a future admin panel can replace the source without rewriting presentation components.
 - Product imagery uses stable public paths while the uploaded logo uses the managed asset pointer; this keeps catalog replacement simple and preserves the supplied brand asset.
+- Unverified contact details and catalog items stay null or empty until supplied; this prevents fabricated commercial facts from appearing as real store data.
