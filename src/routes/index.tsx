@@ -1,24 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, ShieldCheck, Sparkles, Truck } from "lucide-react";
+import { products } from "@/data/products";
+import { ProductGrid } from "@/components/store/ProductGrid";
+import { CategoryCard } from "@/components/store/CategoryCard";
+import { Button } from "@/components/ui/button";
+export const Route = createFileRoute("/")({ head: () => ({ meta: [{ title: "Fabia Multimarcas — Moda, estilo e personalidade" }, { name: "description", content: "Moda masculina e feminina com curadoria sofisticada. Conheça a coleção Fabia Multimarcas." }, { property: "og:title", content: "Fabia Multimarcas — Moda, estilo e personalidade" }, { property: "og:description", content: "Uma curadoria de moda masculina e feminina para vestir sua personalidade." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: Index });
+function Index() { const featured = products.filter((product) => product.destaque); return <main><section className="relative min-h-[calc(100svh-5rem)] overflow-hidden bg-charcoal"><img src="/images/banner/fabia-campanha.jpg" alt="Coleção Fabia Multimarcas" width={1920} height={1200} fetchPriority="high" className="absolute inset-0 size-full object-cover object-[68%_center] md:object-center" /><div className="absolute inset-0 bg-hero-shade" /><div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-7xl items-end px-5 pb-14 pt-28 md:items-center md:px-8 md:pb-24"><div className="max-w-2xl text-on-image"><p className="text-xs font-medium uppercase tracking-[0.28em]">Nova coleção · 2026</p><h1 className="mt-5 font-serif text-5xl leading-[0.93] md:text-7xl lg:text-8xl">Fabia<br />Multimarcas</h1><p className="mt-5 text-lg text-on-image-muted md:text-xl">Moda, estilo e personalidade.</p><Button asChild variant="light" size="lg" className="mt-8"><Link to="/feminino">Ver coleção <ArrowRight /></Link></Button></div></div></section><section className="border-b border-border bg-background"><div className="mx-auto grid max-w-7xl gap-5 px-5 py-8 text-sm md:grid-cols-3 md:px-8"><div className="service-item"><Sparkles /> Curadoria multimarcas</div><div className="service-item"><ShieldCheck /> Atendimento próximo</div><div className="service-item"><Truck /> Envio para todo o Brasil</div></div></section><section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><div className="mb-9 max-w-xl"><p className="eyebrow">Descubra seu estilo</p><h2 className="mt-3 font-serif text-4xl md:text-6xl">Coleções para cada expressão</h2></div><div className="grid gap-5 md:grid-cols-2"><CategoryCard title="Masculino" description="Alfaiataria contemporânea e peças essenciais para uma presença marcante." image="/images/categorias/masculino.jpg" to="/masculino" /><CategoryCard title="Feminino" description="Formas elegantes, texturas especiais e escolhas que revelam personalidade." image="/images/categorias/feminino.jpg" to="/feminino" /></div></section><section className="bg-surface"><div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><div className="mb-10 flex items-end justify-between gap-4"><div><p className="eyebrow">Seleção especial</p><h2 className="mt-3 font-serif text-4xl md:text-6xl">Produtos em destaque</h2></div><Link to="/feminino" className="hidden text-xs font-semibold uppercase tracking-[0.14em] text-primary sm:block">Ver coleção →</Link></div><ProductGrid products={featured} /></div></section></main>; }
