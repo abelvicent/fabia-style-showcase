@@ -12,7 +12,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="pt-4">
         <div className="flex items-start justify-between gap-3">
           <div><p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">{product.marca} · {product.tipo}</p><h3 className="mt-1 font-serif text-xl leading-tight">{product.nome}</h3></div>
-          <p className="shrink-0 text-sm font-semibold">{formatPrice(product.preco)}</p>
+           <p className="shrink-0 text-sm font-semibold">{product.preco === null ? "Preço a confirmar" : formatPrice(product.preco)}</p>
         </div>
         <Button asChild variant="link" className="mt-2 h-auto px-0 text-xs uppercase tracking-[0.14em]"><Link to="/produto/$id" params={{ id: String(product.id) }}>Ver produto <span aria-hidden>→</span></Link></Button>
       </div>
