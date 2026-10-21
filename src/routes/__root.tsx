@@ -81,7 +81,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Fabia Multimarcas" },
-      { name: "description", content: "Fabia Multimarcas, loja de roupas parceira do projeto Fashion AI." },
+      {
+        name: "description",
+        content: "Fabia Multimarcas, loja de roupas parceira do projeto Fashion AI.",
+      },
       { name: "author", content: "Fabia Multimarcas" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -94,7 +97,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -122,7 +128,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen"><Header /><Outlet /><Footer /><WhatsAppButton /></div>
+      <div className="min-h-screen">
+        <Header />
+        <Outlet />
+        <Footer />
+        <WhatsAppButton />
+      </div>
     </QueryClientProvider>
   );
 }
