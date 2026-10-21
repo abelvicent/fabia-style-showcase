@@ -1,4 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CatalogPage } from "@/components/store/CatalogPage";
-export const Route = createFileRoute("/feminino")({ head: () => ({ meta: [{ title: "Moda Feminina — Fabia Multimarcas" }, { name: "description", content: "Espaço de moda feminina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações." }, { property: "og:title", content: "Moda Feminina — Fabia Multimarcas" }, { property: "og:description", content: "Espaço de moda feminina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: FemininoPage });
-function FemininoPage() { return <CatalogPage category="feminino" title="Moda Feminina" intro="Espaço reservado para os produtos femininos da Fabia Multimarcas." filters={[{ label: "Todos", value: "todos" }, { label: "Blusas", value: "blusas" }, { label: "Calças", value: "calças" }, { label: "Vestidos", value: "vestidos" }, { label: "Shorts", value: "shorts" }, { label: "Outros", value: "outros" }]} />; }
+export const Route = createFileRoute("/feminino")({
+  head: () => ({
+    meta: [
+      { title: "Moda Feminina — Fabia Multimarcas" },
+      {
+        name: "description",
+        content:
+          "Espaço de moda feminina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações.",
+      },
+      { property: "og:title", content: "Moda Feminina — Fabia Multimarcas" },
+      {
+        property: "og:description",
+        content:
+          "Espaço de moda feminina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: FemininoPage,
+});
+function FemininoPage() {
+  return (
+    <CatalogPage
+      category="feminino"
+      title="Moda Feminina"
+      intro="Espaço reservado para os produtos femininos da Fabia Multimarcas."
+      filters={[
+        { label: "Todos", value: "todos" },
+        { label: "Blusas", value: "blusas" },
+        { label: "Calças", value: "calças" },
+        { label: "Vestidos", value: "vestidos" },
+        { label: "Shorts", value: "shorts" },
+        { label: "Outros", value: "outros" },
+      ]}
+    />
+  );
+}

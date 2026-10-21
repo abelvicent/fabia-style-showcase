@@ -24,7 +24,7 @@ declare global {
   }
 }
 
-export function reportLovableError(error: unknown, context: Record<string, unknown> = {}) {
+export function reportError(error: unknown, context: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
     error,
@@ -39,9 +39,9 @@ export function reportLovableError(error: unknown, context: Record<string, unkno
       severity: "error",
     },
   );
-  // Prod React does not rethrow boundary-caught errors to window.onerror, so the
-  // editor's telemetry never sees them. Forward to lovable.js's reporting hook,
-  // which is present only inside the editor preview.
+  // Prod React does not rethrow boundary-caught errors to window.onerror;
+  // forward them to the optional preview reporting hook,
+  // which exists only in the hosted preview environment.
   // Loaders and server fns commonly throw a raw Response; String(it) is the
   // opaque "[object Response]", so pull out the status and URL instead.
   const message =

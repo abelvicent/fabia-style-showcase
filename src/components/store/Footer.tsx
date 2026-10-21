@@ -1,4 +1,68 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Mail, MessageCircle } from "lucide-react";
 import { storeConfig } from "@/config/storeConfig";
-export function Footer() { return <footer className="border-t border-border bg-footer text-footer-foreground"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-3 md:px-8"><div><p className="font-serif text-3xl">{storeConfig.nome}</p><p className="mt-3 max-w-xs text-sm text-footer-muted">Loja de roupas parceira do projeto Fashion AI.</p></div><div><p className="eyebrow text-footer-muted">Navegue</p><div className="mt-4 grid gap-2 text-sm"><Link to="/masculino">Masculino</Link><Link to="/feminino">Feminino</Link><Link to="/contato">Contato</Link></div></div><div><p className="eyebrow text-footer-muted">Fale conosco</p><div className="mt-4 flex gap-2">{storeConfig.whatsapp && <a className="social-link" href={`https://wa.me/${storeConfig.whatsapp}`} target="_blank" rel="noreferrer" aria-label="WhatsApp"><MessageCircle /></a>}{storeConfig.instagramUrl && <a className="social-link" href={storeConfig.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram /></a>}{storeConfig.email && <a className="social-link" href={`mailto:${storeConfig.email}`} aria-label="E-mail"><Mail /></a>}{!storeConfig.whatsapp && !storeConfig.instagramUrl && !storeConfig.email && <Link className="text-sm text-footer-muted underline underline-offset-4" to="/contato">Informações de contato</Link>}</div></div></div><div className="border-t border-footer-line px-5 py-5 text-center text-xs text-footer-muted">{storeConfig.nome} · CNPJ {storeConfig.cnpj}</div></footer>; }
+export function Footer() {
+  return (
+    <footer className="border-t border-border bg-footer text-footer-foreground">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-3 md:px-8">
+        <div>
+          <p className="font-serif text-3xl">{storeConfig.nome}</p>
+          <p className="mt-3 max-w-xs text-sm text-footer-muted">
+            Loja de roupas parceira do projeto Fashion AI.
+          </p>
+        </div>
+        <div>
+          <p className="eyebrow text-footer-muted">Navegue</p>
+          <div className="mt-4 grid gap-2 text-sm">
+            <Link to="/masculino">Masculino</Link>
+            <Link to="/feminino">Feminino</Link>
+            <Link to="/contato">Contato</Link>
+          </div>
+        </div>
+        <div>
+          <p className="eyebrow text-footer-muted">Fale conosco</p>
+          <div className="mt-4 flex gap-2">
+            {storeConfig.whatsapp && (
+              <a
+                className="social-link"
+                href={`https://wa.me/${storeConfig.whatsapp}`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle />
+              </a>
+            )}
+            {storeConfig.instagramUrl && (
+              <a
+                className="social-link"
+                href={storeConfig.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <Instagram />
+              </a>
+            )}
+            {storeConfig.email && (
+              <a className="social-link" href={`mailto:${storeConfig.email}`} aria-label="E-mail">
+                <Mail />
+              </a>
+            )}
+            {!storeConfig.whatsapp && !storeConfig.instagramUrl && !storeConfig.email && (
+              <Link
+                className="text-sm text-footer-muted underline underline-offset-4"
+                to="/contato"
+              >
+                Informações de contato
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="border-t border-footer-line px-5 py-5 text-center text-xs text-footer-muted">
+        {storeConfig.nome} · CNPJ {storeConfig.cnpj}
+      </div>
+    </footer>
+  );
+}

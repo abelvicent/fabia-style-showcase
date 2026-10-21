@@ -1,4 +1,39 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CatalogPage } from "@/components/store/CatalogPage";
-export const Route = createFileRoute("/masculino")({ head: () => ({ meta: [{ title: "Moda Masculina — Fabia Multimarcas" }, { name: "description", content: "Espaço de moda masculina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações." }, { property: "og:title", content: "Moda Masculina — Fabia Multimarcas" }, { property: "og:description", content: "Espaço de moda masculina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: MasculinoPage });
-function MasculinoPage() { return <CatalogPage category="masculino" title="Moda Masculina" intro="Espaço reservado para os produtos masculinos da Fabia Multimarcas." filters={[{ label: "Todos", value: "todos" }, { label: "Camisas", value: "camisas" }, { label: "Calças", value: "calças" }, { label: "Shorts", value: "shorts" }, { label: "Outros", value: "outros" }]} />; }
+export const Route = createFileRoute("/masculino")({
+  head: () => ({
+    meta: [
+      { title: "Moda Masculina — Fabia Multimarcas" },
+      {
+        name: "description",
+        content:
+          "Espaço de moda masculina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações.",
+      },
+      { property: "og:title", content: "Moda Masculina — Fabia Multimarcas" },
+      {
+        property: "og:description",
+        content:
+          "Espaço de moda masculina da Fabia Multimarcas. Produtos serão adicionados após confirmação das informações.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: MasculinoPage,
+});
+function MasculinoPage() {
+  return (
+    <CatalogPage
+      category="masculino"
+      title="Moda Masculina"
+      intro="Espaço reservado para os produtos masculinos da Fabia Multimarcas."
+      filters={[
+        { label: "Todos", value: "todos" },
+        { label: "Camisas", value: "camisas" },
+        { label: "Calças", value: "calças" },
+        { label: "Shorts", value: "shorts" },
+        { label: "Outros", value: "outros" },
+      ]}
+    />
+  );
+}

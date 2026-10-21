@@ -76,30 +76,121 @@
   --whatsapp-foreground: oklch(1 0 0);
   --success: oklch(0.52 0.14 145);
   --shadow-float: 0 12px 32px oklch(0.12 0.02 20 / 20%);
-  --hero-shade: linear-gradient(90deg, oklch(0.1 0.02 20 / 78%) 0%, oklch(0.1 0.02 20 / 36%) 43%, transparent 72%);
+  --hero-shade: linear-gradient(
+    90deg,
+    oklch(0.1 0.02 20 / 78%) 0%,
+    oklch(0.1 0.02 20 / 36%) 43%,
+    transparent 72%
+  );
   --image-shade: linear-gradient(to top, oklch(0.1 0.02 20 / 82%), transparent 60%);
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); letter-spacing: 0; }
-  a { color: inherit; text-decoration: none; }
-  button, a { -webkit-tap-highlight-color: transparent; }
-  ::selection { background: var(--color-primary); color: var(--color-primary-foreground); }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
 }
 
-@utility bg-hero-shade { background: var(--hero-shade); }
-@utility bg-image-shade { background: var(--image-shade); }
-@utility eyebrow { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-primary); }
-@utility service-item { display: flex; align-items: center; justify-content: center; gap: 0.65rem; color: var(--color-muted-foreground); }
-@utility social-link { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border: 1px solid var(--color-footer-line); transition: color 180ms, border-color 180ms; }
-@utility contact-line { display: flex; align-items: flex-start; gap: 1rem; }
-@utility field-label { display: grid; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; }
+@utility bg-hero-shade {
+  background: var(--hero-shade);
+}
+@utility bg-image-shade {
+  background: var(--image-shade);
+}
+@utility eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-primary);
+}
+@utility service-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  color: var(--color-muted-foreground);
+}
+@utility social-link {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--color-footer-line);
+  transition:
+    color 180ms,
+    border-color 180ms;
+}
+@utility contact-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+@utility field-label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
 
-.contact-line svg, .service-item svg, .social-link svg { width: 1.1rem; height: 1.1rem; flex: none; }
-.contact-line strong, .contact-line small { display: block; }
-.contact-line small { margin-top: 0.2rem; color: var(--color-muted-foreground); font-weight: 400; }
-.social-link:hover { color: var(--color-primary); border-color: var(--color-primary); }
-@media (max-width: 767px) { :root { --hero-shade: linear-gradient(to top, oklch(0.1 0.02 20 / 88%) 0%, oklch(0.1 0.02 20 / 20%) 75%); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
+.contact-line svg,
+.service-item svg,
+.social-link svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+}
+.contact-line strong,
+.contact-line small {
+  display: block;
+}
+.contact-line small {
+  margin-top: 0.2rem;
+  color: var(--color-muted-foreground);
+  font-weight: 400;
+}
+.social-link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+@media (max-width: 767px) {
+  :root {
+    --hero-shade: linear-gradient(
+      to top,
+      oklch(0.1 0.02 20 / 88%) 0%,
+      oklch(0.1 0.02 20 / 20%) 75%
+    );
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
